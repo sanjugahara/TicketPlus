@@ -1,5 +1,5 @@
 package db;
-
+import db.mongodb.MongoDBConnection;
 import db.mysql.MySQLConnection;
 
 public class DBConnectionFactory {
@@ -12,6 +12,8 @@ public class DBConnectionFactory {
 		switch (db) {
 		case "mysql":
 			return MySQLConnection.getInstance();
+		case "mongodb":
+			return MongoDBConnection.getInstance();
 		// You may try other dbs and add them here.
 		default:
 			throw new IllegalArgumentException("Invalid db " + db);
